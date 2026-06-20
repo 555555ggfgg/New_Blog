@@ -11,11 +11,13 @@
     "vue-hitokoto"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
-    "dev:client": "npm run dev --workspace=client",
-    "dev:server": "npm run dev --workspace=server",
-    "build": "npm run build --workspaces",
-    "install:all": "npm install && npm install --workspaces"
+    "dev": "concurrently \"pnpm run dev:client\" \"pnpm run dev:server\"",
+    "dev:client": "pnpm run dev --filter=client",
+    "dev:server": "pnpm run dev --filter=server",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint --if-present",
+    "test": "pnpm -r run test --if-present",
+    "install:all": "pnpm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
